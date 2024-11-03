@@ -1,9 +1,9 @@
 from flask import Flask, jsonify
 import logging
-from api.endpoints.notes import notes_bp
-from api.endpoints.types import types_bp
-from api.endpoints.update_history import update_history_bp
-from api.db.initialize_types import initialize_types
+from app.api.endpoints.notes import notes_bp
+from app.api.endpoints.types import types_bp
+from app.api.endpoints.update_history import update_history_bp
+from app.api.db.initialize_types import initialize_types
 
 
 app = Flask(__name__)
