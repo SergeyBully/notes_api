@@ -21,4 +21,5 @@ def home():
 
 if __name__ == '__main__':
     logger.info("Starting server...")
+    app.run()
     initialize_types()
