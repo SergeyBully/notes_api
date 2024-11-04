@@ -8,3 +8,8 @@ apt-get install -y freetds-bin freetds-dev unixodbc-dev
 
 echo "[global]
 tds version = 7.4" > /etc/freetds/freetds.conf
+
+echo "[FreeTDS]
+Description=FreeTDS Driver
+Driver=/usr/lib/x86_64-linux-gnu/odbc/libtdsodbc.so
+UsageCount=1" > /etc/odbcinst.ini
