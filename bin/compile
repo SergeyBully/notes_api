@@ -1,0 +1,17 @@
+#!/bin/bash
+
+set -e
+
+# Install prerequisites
+apt-get update
+apt-get install -y wget gnupg2
+
+# Add the Microsoft GPG key
+wget -qO- https://packages.microsoft.com/keys/microsoft.asc | apt-key add -
+
+# Add the Microsoft SQL Server repository
+echo "deb [arch=amd64] https://packages.microsoft.com/debian/10/prod buster main" > /etc/apt/sources.list.d/mssql-release.list
+
+# Install the ODBC driver
+apt-get update
+apt-get install -y msodbcsql17 unixodbc-dev

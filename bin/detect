@@ -1,0 +1,3 @@
+#!/bin/bash
+
+echo "odbc-driver"  # This just needs to output something to signify it's valid
