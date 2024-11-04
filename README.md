@@ -307,4 +307,4 @@ SQL_USERNAME=<Username>
 SQL_PASSWORD=<Password>
 ```
 ### Database schema
-![DB.png](..%2FDB.png)
+![DB.png](images%2FDB.png)
