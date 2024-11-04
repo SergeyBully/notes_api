@@ -3,4 +3,6 @@ odbcinst
 libodbcinst2
 unixodbc-common
 unixodbc
-freetds
+freetds-bin
+freetds-dev
+unixodbc-dev

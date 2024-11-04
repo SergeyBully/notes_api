@@ -4,22 +4,7 @@ set -e
 
 apt-get update
 
-apt-get install -y wget gnupg2
+apt-get install -y freetds-bin freetds-dev unixodbc-dev
 
-wget -qO- https://packages.microsoft.com/keys/microsoft.asc | apt-key add -
-
-echo "deb [arch=amd64] https://packages.microsoft.com/debian/10/prod buster main" > /etc/apt/sources.list.d/mssql-release.list
-
-apt-get update
-
-apt-get install -y msodbcsql17 unixodbc-dev
-
-if [ ! -f /etc/odbcinst.ini ]; then
-    echo "[ODBC Driver 17 for SQL Server]
-    Description=Microsoft ODBC Driver 17 for SQL Server
-    Driver=/opt/microsoft/msodbcsql17/lib64/libmsodbcsql-17.0.so.1.1
-    UsageCount=1" > /etc/odbcinst.ini
-fi
-
-odbcinst -q -d
-cat /etc/odbcinst.ini
+echo "[global]
+tds version = 7.4" > /etc/freetds/freetds.conf
