@@ -1,4 +1,5 @@
 libodbc2
+msodbcsql17
 odbcinst
 libodbcinst2
 unixodbc-common
