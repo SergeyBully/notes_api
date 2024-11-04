@@ -1,3 +1,4 @@
 libodbc2
 odbcinst
-odbcinst1debian2
+libodbcinst2
+unixodbc-common
