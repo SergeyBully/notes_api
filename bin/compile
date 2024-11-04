@@ -2,16 +2,24 @@
 
 set -e
 
-# Install prerequisites
 apt-get update
+
 apt-get install -y wget gnupg2
 
-# Add the Microsoft GPG key
 wget -qO- https://packages.microsoft.com/keys/microsoft.asc | apt-key add -
 
-# Add the Microsoft SQL Server repository
 echo "deb [arch=amd64] https://packages.microsoft.com/debian/10/prod buster main" > /etc/apt/sources.list.d/mssql-release.list
 
-# Install the ODBC driver
 apt-get update
+
 apt-get install -y msodbcsql17 unixodbc-dev
+
+if [ ! -f /etc/odbcinst.ini ]; then
+    echo "[ODBC Driver 17 for SQL Server]
+    Description=Microsoft ODBC Driver 17 for SQL Server
+    Driver=/opt/microsoft/msodbcsql17/lib64/libmsodbcsql-17.0.so.1.1
+    UsageCount=1" > /etc/odbcinst.ini
+fi
+
+odbcinst -q -d
+cat /etc/odbcinst.ini
